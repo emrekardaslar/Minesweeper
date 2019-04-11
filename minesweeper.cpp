@@ -179,16 +179,6 @@ bool playMinesweeperUtil(char myBoard[][MAXSIDE], char realBoard[][MAXSIDE],
 		if (!count)
 		{
 			/*
-			Recur for all 8 adjacent cells
-
-			N.W   N   N.E
-			\   |   /
-			\  |  /
-			W----Cell----E
-			/ | \
-			/   |  \
-			S.W    S   S.E
-
 			Cell-->Current Cell (row, col)
 			N -->  North        (row-1, col)
 			S -->  South        (row+1, col)
@@ -200,72 +190,53 @@ bool playMinesweeperUtil(char myBoard[][MAXSIDE], char realBoard[][MAXSIDE],
 			S.W--> South-West   (row+1, col-1)
 			*/
 
-			//----------- 1st Neighbour (North) ------------
-
-			// Only process this cell if this is a valid one
+			
 			if (isValid(row - 1, col) == true)
 			{
 				if (isMine(row - 1, col, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row - 1, col, movesLeft);
 			}
 
-			//----------- 2nd Neighbour (South) ------------
-
-			// Only process this cell if this is a valid one
 			if (isValid(row + 1, col) == true)
 			{
 				if (isMine(row + 1, col, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row + 1, col, movesLeft);
 			}
 
-			//----------- 3rd Neighbour (East) ------------
-
-			// Only process this cell if this is a valid one
+			
 			if (isValid(row, col + 1) == true)
 			{
 				if (isMine(row, col + 1, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row, col + 1, movesLeft);
 			}
 
-			//----------- 4th Neighbour (West) ------------
-
-			// Only process this cell if this is a valid one
 			if (isValid(row, col - 1) == true)
 			{
 				if (isMine(row, col - 1, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row, col - 1, movesLeft);
 			}
 
-			//----------- 5th Neighbour (North-East) ------------
-
-			// Only process this cell if this is a valid one
+			
 			if (isValid(row - 1, col + 1) == true)
 			{
 				if (isMine(row - 1, col + 1, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row - 1, col + 1, movesLeft);
 			}
 
-			//----------- 6th Neighbour (North-West) ------------
-
-			// Only process this cell if this is a valid one
+			
 			if (isValid(row - 1, col - 1) == true)
 			{
 				if (isMine(row - 1, col - 1, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row - 1, col - 1, movesLeft);
 			}
 
-			//----------- 7th Neighbour (South-East) ------------
-
-			// Only process this cell if this is a valid one
+			
 			if (isValid(row + 1, col + 1) == true)
 			{
 				if (isMine(row + 1, col + 1, realBoard) == false)
 					playMinesweeperUtil(myBoard, realBoard, mines, row + 1, col + 1, movesLeft);
 			}
 
-			//----------- 8th Neighbour (South-West) ------------
-
-			// Only process this cell if this is a valid one
 			if (isValid(row + 1, col - 1) == true)
 			{
 				if (isMine(row + 1, col - 1, realBoard) == false)
